@@ -5,7 +5,7 @@ import re
 import yaml
 import csv
 import click
-from elasticsearch import Elasticsearch
+# from elasticsearch import Elasticsearch
 from collections import OrderedDict
 
 def init_app(config_file, host=None, port=None, **kwargs):
@@ -35,12 +35,12 @@ def init_app(config_file, host=None, port=None, **kwargs):
     else:
         exit('Not valid workdir: %s' % workdir)
 
-    if (host and port):
-        if host: app_ctx['config']['es.host'] = host
-        if port: app_ctx['config']['es.port'] = port
+    # if (host and port):
+    #     if host: app_ctx['config']['es.host'] = host
+    #     if port: app_ctx['config']['es.port'] = port
 
-        es_hosts = [ "%s:%s" % (app_ctx['config']['es.host'], app_ctx['config']['es.port']) ]
-        app_ctx['es'] = Elasticsearch(hosts=es_hosts, http_auth=('elastic', 'changeme'), **kwargs)
+    #     es_hosts = [ "%s:%s" % (app_ctx['config']['es.host'], app_ctx['config']['es.port']) ]
+    #     app_ctx['es'] = Elasticsearch(hosts=es_hosts, http_auth=('elastic', 'changeme'), **kwargs)
 
     return app_ctx
 

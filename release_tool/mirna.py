@@ -2,7 +2,7 @@ import os
 import sys
 import click
 import util
-from elasticsearch import Elasticsearch
+# from elasticsearch import Elasticsearch
 import json
 import csv
 import copy
