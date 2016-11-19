@@ -1,0 +1,192 @@
+main_file_name: "mirna_sample_info.txt"
+help_file_name: "pcawg_sample_sheet.tsv"
+annotations_path: "/Users/lxiang/projects/pancan/pancancer-sandbox/pcawg-operations/lists/"
+
+
+input_fields_map:
+    submitter_donor_id: "participant_id"
+    submitter_specimen_id: "sample_id"
+    dcc_project_code: "disease.x"
+    dcc_specimen_type: "sample_class"
+    library_strategy: "library_type"
+    file_name: "filename"
+    file_md5sum: "checksum"
+    gnos_last_modified: "modified"
+    gnos_id: "analysis_id"
+    submitter_sample_id: "aliquot_id"
+    aliquot_id: "aliquot_id"
+
+
+target_schema:
+    donor:
+        dcc_project_code:
+        donor_unique_id:
+        submitter_donor_id:
+        icgc_donor_id:
+        pcawg_donor:
+        donor_wgs_exclusion_white_gray:
+        tumor_mirna_specimen_count: 
+        tumor_rna_seq_specimen_count:
+        tumor_wgs_specimen_count:
+        normal: 
+            mirna: {}
+            rna_seq: {}
+            wgs: {}
+        tumor:
+            mirna: []
+            rna_seq: []
+            wgs: []
+    mirna:
+        submitter_specimen_id:
+        icgc_specimen_id:
+        dcc_specimen_type:
+        library_strategy:
+        aliquots: []
+    rna_seq:
+        aliquot_id:
+        submitter_specimen_id:
+        icgc_specimen_id:
+        submitter_sample_id:
+        icgc_sample_id:
+        dcc_specimen_type:
+        library_strategy:
+    wgs:
+        aliquot_id:
+        submitter_specimen_id:
+        icgc_specimen_id:
+        submitter_sample_id:
+        icgc_sample_id:
+        dcc_specimen_type:
+        library_strategy:
+    aliquot:
+        aliquot_id:
+        files: 
+        gnos_id:
+        gnos_last_modified:
+        gnos_repo:
+        icgc_sample_id: 
+        submitter_sample_id:
+
+target_tsv_file:
+    mirna_sample_sheet:
+        donor:
+            - dcc_project_code
+            - donor_unique_id
+            - submitter_donor_id
+            - icgc_donor_id
+            - pcawg_donor
+            - donor_wgs_exclusion_white_gray
+        specimen:
+            - submitter_specimen_id
+            - icgc_specimen_id
+            - dcc_specimen_type
+            - library_strategy
+        sample:
+            - submitter_sample_id
+            - icgc_sample_id
+            - aliquot_id
+    mirna_release_tsv:
+        - dcc_project_code
+        - donor_unique_id
+        - submitter_donor_id
+        - icgc_donor_id
+        - pcawg_donor
+        - donor_wgs_exclusion_white_gray
+        - normal_mirna_submitter_specimen_id
+        - normal_mirna_icgc_specimen_id
+        - normal_mirna_submitter_sample_id
+        - normal_mirna_icgc_sample_id
+        - normal_mirna_aliquot_id
+        - normal_mirna_gnos_repo
+        - normal_mirna_gnos_id
+        - normal_mirna_file_name
+        - normal_mirna_has_matched_wgs_specimen
+        - normal_mirna_has_matched_rna_seq_specimen
+        - tumor_mirna_specimen_count
+        - tumor_mirna_submitter_specimen_id
+        - tumor_mirna_icgc_specimen_id
+        - tumor_mirna_submitter_sample_id
+        - tumor_mirna_icgc_sample_id
+        - tumor_mirna_aliquot_id
+        - tumor_mirna_gnos_repo
+        - tumor_mirna_gnos_id
+        - tumor_mirna_file_name
+        - tumor_mirna_has_matched_wgs_specimen
+        - tumor_mirna_has_matched_rna_seq_specimen
+        - normal_wgs_submitter_specimen_id
+        - normal_wgs_icgc_specimen_id
+        - normal_wgs_submitter_sample_id
+        - normal_wgs_icgc_sample_id
+        - normal_wgs_aliquot_id
+        - tumor_wgs_submitter_specimen_id
+        - tumor_wgs_icgc_specimen_id
+        - tumor_wgs_submitter_sample_id
+        - tumor_wgs_icgc_sample_id
+        - tumor_wgs_aliquot_id
+        - normal_rna_seq_submitter_specimen_id
+        - normal_rna_seq_icgc_specimen_id
+        - normal_rna_seq_submitter_sample_id
+        - normal_rna_seq_icgc_sample_id
+        - normal_rna_seq_aliquot_id
+        - tumor_rna_seq_submitter_specimen_id
+        - tumor_rna_seq_icgc_specimen_id
+        - tumor_rna_seq_submitter_sample_id
+        - tumor_rna_seq_icgc_sample_id
+        - tumor_rna_seq_aliquot_id
+
+
+json2tsv_fields_map:
+        dcc_project_code: dcc_project_code
+        donor_unique_id: donor_unique_id
+        submitter_donor_id: submitter_donor_id
+        icgc_donor_id: icgc_donor_id
+        pcawg_donor: pcawg_donor
+        donor_wgs_exclusion_white_gray: donor_wgs_exclusion_white_gray
+        submitter_specimen_id: submitter_specimen_id
+        icgc_specimen_id: icgc_specimen_id
+        dcc_specimen_type: dcc_specimen_type
+        library_strategy: library_strategy
+        aliquot_id: aliquot_id
+        submitter_sample_id: submitter_sample_id
+        icgc_sample_id: icgc_sample_id
+        normal_mirna_submitter_specimen_id: normal.mirna.submitter_specimen_id
+        normal_mirna_icgc_specimen_id: normal.mirna.icgc_specimen_id
+        normal_mirna_submitter_sample_id: normal.mirna.aliquots.submitter_sample_id
+        normal_mirna_icgc_sample_id: normal.mirna.aliquots.icgc_sample_id
+        normal_mirna_aliquot_id: normal.mirna.aliquots.aliquot_id
+        normal_mirna_gnos_repo: normal.mirna.aliquots.gnos_repo
+        normal_mirna_gnos_id: normal.mirna.aliquots.gnos_id
+        normal_mirna_file_name: normal.mirna.aliquots.files.file_name
+        tumor_mirna_specimen_count: tumor_mirna_specimen_count
+        tumor_mirna_submitter_specimen_id: tumor.mirna.submitter_specimen_id
+        tumor_mirna_icgc_specimen_id: tumor.mirna.icgc_specimen_id
+        tumor_mirna_submitter_sample_id: tumor.mirna.aliquots.submitter_sample_id
+        tumor_mirna_icgc_sample_id: tumor.mirna.aliquots.icgc_sample_id
+        tumor_mirna_aliquot_id: tumor.mirna.aliquots.aliquot_id
+        tumor_mirna_gnos_repo: tumor.mirna.aliquots.gnos_repo
+        tumor_mirna_gnos_id: tumor.mirna.aliquots.gnos_id
+        tumor_mirna_file_name: tumor.mirna.aliquots.files.file_name
+        normal_wgs_submitter_specimen_id: normal.wgs.submitter_specimen_id
+        normal_wgs_icgc_specimen_id: normal.wgs.icgc_specimen_id
+        normal_wgs_submitter_sample_id: normal.wgs.submitter_sample_id
+        normal_wgs_icgc_sample_id: normal.wgs.icgc_sample_id
+        normal_wgs_aliquot_id: normal.wgs.aliquot_id
+        tumor_wgs_submitter_specimen_id: tumor.wgs.submitter_specimen_id
+        tumor_wgs_icgc_specimen_id: tumor.wgs.icgc_specimen_id
+        tumor_wgs_submitter_sample_id: tumor.wgs.submitter_sample_id
+        tumor_wgs_icgc_sample_id: tumor.wgs.icgc_sample_id
+        tumor_wgs_aliquot_id: tumor.wgs.aliquot_id
+        normal_rna_seq_submitter_specimen_id: normal.rna_seq.submitter_specimen_id
+        normal_rna_seq_icgc_specimen_id: normal.rna_seq.icgc_specimen_id
+        normal_rna_seq_submitter_sample_id: normal.rna_seq.submitter_sample_id
+        normal_rna_seq_icgc_sample_id: normal.rna_seq.icgc_sample_id
+        normal_rna_seq_aliquot_id: normal.rna_seq.aliquot_id
+        tumor_rna_seq_submitter_specimen_id: tumor.rna_seq.submitter_specimen_id
+        tumor_rna_seq_icgc_specimen_id: tumor.rna_seq.icgc_specimen_id
+        tumor_rna_seq_submitter_sample_id: tumor.rna_seq.submitter_sample_id
+        tumor_rna_seq_icgc_sample_id: tumor.rna_seq.icgc_sample_id
+        tumor_rna_seq_aliquot_id: tumor.rna_seq.aliquot_id
+        tumor_mirna_has_matched_wgs_specimen: tumor.mirna.has_matched_wgs_specimen
+        tumor_mirna_has_matched_rna_seq_specimen: tumor.mirna.has_matched_rna_seq_specimen
+        normal_mirna_has_matched_wgs_specimen: normal.mirna.has_matched_wgs_specimen
+        normal_mirna_has_matched_rna_seq_specimen: normal.mirna.has_matched_rna_seq_specimen

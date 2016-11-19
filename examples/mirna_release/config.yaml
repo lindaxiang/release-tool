@@ -1,0 +1,13 @@
+release_version: mirna-r1
+es.host: localhost
+es.port: 9200
+delete_index_if_exists: true  # good for development use
+
+input_dir: input
+output_dir: output
+
+indexes:
+    "{release_version}-donor":
+        settings: donor.es_settings.yaml
+
+
