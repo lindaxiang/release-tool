@@ -1,6 +1,6 @@
 main_file_name: "mirna_sample_info.txt"
 help_file_name: "pcawg_sample_sheet.tsv"
-annotations_path: "/Users/lxiang/projects/pancan/pancancer-sandbox/pcawg-operations/lists/"
+annotations_path: "../pcawg-operations/lists/"
 
 
 input_fields_map:
