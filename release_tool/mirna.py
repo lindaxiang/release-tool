@@ -75,12 +75,12 @@ def build_donor(app_ctx):
         for r in reader:
             donor_unique_id = r.get('donor_unique_id')
             specimen_id = r.get('submitter_specimen_id')
-            for dtype in ['rna_seq', 'wgs']:
-                if not specimen.get(dtype):
-                    specimen[dtype] = {}
-                if not specimen[dtype].get(specimen_id):
-                    specimen[dtype][specimen_id] = create_obj(donor_unique_id, schema, r, annotations, dtype)
-                specimen[dtype][specimen_id]['donor_unique_id'] = donor_unique_id  
+            dtype = 'rna_seq' if r.get('library_strategy') == 'RNA-Seq' else 'wgs'
+            if not specimen.get(dtype):
+                specimen[dtype] = {}
+            if not specimen[dtype].get(specimen_id):
+                specimen[dtype][specimen_id] = create_obj(donor_unique_id, schema, r, annotations, dtype)
+            specimen[dtype][specimen_id]['donor_unique_id'] = donor_unique_id  
 
     if os.path.exists(app_ctx['output_dir']):
         shutil.rmtree(app_ctx['output_dir'])
