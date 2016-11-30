@@ -105,7 +105,7 @@ def build_donor(app_ctx):
             donor_unique_id = v.get('donor_unique_id')            
             if not donor.get(donor_unique_id):
                 continue
-            if (not donor[donor_unique_id]['pcawg_donor']) and ('tumor' in v.get('dcc_specimen_type').lower()):
+            if (not donor[donor_unique_id]['pcawg_donor']) and (not 'normal' in v.get('dcc_specimen_type').lower()):
                 continue
             sample_sheet = OrderedDict()
             sample_sheet.update(util.get_dict_value(sample_sheet_fields_donor, donor[donor_unique_id], json2tsv_fields_map))
